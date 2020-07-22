@@ -1,5 +1,4 @@
 ## Twitter Thought Leader
-==============================
 
 The objective of the project is help anyone find thought leaders or influencer on a specific topic.
 
