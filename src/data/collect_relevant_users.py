@@ -21,6 +21,8 @@ class CollectRelevantUser:
         self.ML_KEYWORDS = [
             "ai ",
             "ml ",
+            ".ai"
+            "fast.ai"
             "artificial intelligence",
             "machine learning",
             "deeplearning",
@@ -34,6 +36,7 @@ class CollectRelevantUser:
             "rl ",
             "kaggle",
             "datascience",
+            "data science",
             "google brain",
             "deepmind",
             "googleai",
@@ -42,6 +45,13 @@ class CollectRelevantUser:
             "statistical modelling",
             "computational learning",
             "natural language processing",
+            "vision and learning",
+            "data visualization",
+            "matplotlib",
+            "computer science",
+            "data ethics",
+            "stats "
+            
         ]
     
     def scrape_follow_list(self, target):

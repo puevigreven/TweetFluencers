@@ -1,6 +1,6 @@
 import logging
 import sys
-from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
 from pathlib import Path
 from time import time
 
@@ -20,11 +20,11 @@ class CollectTweets:
         c = twint.Config()
         c.Username = user_name
         c.Hide_output = True
-        c.Since = "2019-01-01"
-        c.Limit = 2000
+        # c.Since = "2019-01-01"
+        c.Limit = 1500
         c.Store_csv = True
         c.Min_wait_time = 120
-        data_folder_path = "../../data/raw/tweet_since_2019/"
+        data_folder_path = "../../data/raw/tweets_last_1500/"
         c.Output = data_folder_path + user_name + ".csv"
         twint.run.Search(c)
 
@@ -33,7 +33,7 @@ class CollectTweets:
 
     def main(self):
         data_folder_path = "../../data/raw/"
-        relevant_user_file = data_folder_path + "relevant_user.txt"
+        relevant_user_file = data_folder_path + "refined_relevant_user_list.txt"
         with open(relevant_user_file) as f:
             user_list = f.read().splitlines()
         print(len(user_list))
