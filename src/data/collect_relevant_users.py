@@ -21,9 +21,7 @@ class CollectRelevantUser:
         self.ML_KEYWORDS = [
             "ai ",
             "ml ",
-            ".ai"
-            "fast.ai"
-            "artificial intelligence",
+            ".ai" "fast.ai" "artificial intelligence",
             "machine learning",
             "deeplearning",
             "machinelearning",
@@ -50,10 +48,19 @@ class CollectRelevantUser:
             "matplotlib",
             "computer science",
             "data ethics",
-            "stats "
-            
+            "stats ",
+            "deepmind",
+            "intelligent systems",
+            "a.i.",
+            "pytorch",
+            "tensorflow",
+            "keras",
+            "theano",
+            "bayesian statistics",
+            "openai",
+            "forecasting",
         ]
-    
+
     def scrape_follow_list(self, target):
         logger.info("===> " + str(target))
         c = twint.Config()
@@ -63,14 +70,15 @@ class CollectRelevantUser:
         twint.run.Following(c)
         follow_list = twint.output.follows_list
         return follow_list
-    
-    
+
     def write_to_file(self, relevant_user):
         if len(relevant_user) % 2 == 0:
-            with open(self.data_folder_path + "relevant_user.txt", "w+") as f:
+            with open(
+                self.data_folder_path + "refined_relevant_user_list.txt", "w+"
+            ) as f:
                 for item in relevant_user:
                     f.write("%s\n" % item)
-            logger.info("====>   Data written to relevant_user.txt file!")
+            logger.info("====>   Data written to refined_relevant_user_list.txt file!")
 
     def write_user_info(self, relevant_user_info_list):
         if len(relevant_user_info_list) > 2:
@@ -80,7 +88,7 @@ class CollectRelevantUser:
             except Exception as e:
                 logger.error(str(e))
                 logger.error("Error occurred in write_user_info")
-                print (relevant_user_info_list)
+                print(relevant_user_info_list)
                 relevant_user_info_df = pd.DataFrame.from_dict(relevant_user_info_list)
                 relevant_user_info_df.to_csv(
                     self.data_folder_path + "relevant_user_info.csv", index=False
@@ -118,14 +126,12 @@ class CollectRelevantUser:
             return True, user_info_dict
         else:
             return False, None
-    
 
-    
     def main(self):
         last_stop_index = 0
         flag = True
 
-        with open(self.data_folder_path + "relevant_user.txt") as f:
+        with open(self.data_folder_path + "refined_relevant_user_list.txt") as f:
             relevant_user = f.read().splitlines()
         if len(relevant_user) == 0 and flag:
             relevant_user = []
@@ -137,7 +143,7 @@ class CollectRelevantUser:
             relevant_user_info_list = []
             relevant_user = relevant_user[last_stop_index:]
             completed_user = last_stop_index - 1
-        
+
         last_count = len(relevant_user)
 
         for target in relevant_user:
