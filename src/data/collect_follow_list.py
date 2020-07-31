@@ -24,13 +24,14 @@ logger = logging.getLogger(__name__)
 class CollectFollowList:
     def __init__(self):
         self.data_folder_path = "../../data/raw/"
-        self.follow_list_path = "../../data/raw/follow_lists"
+        self.follow_list_path = (
+            "../../data/raw/follow_lists"
+        )
         self.follow_list_dict = {}
         self.count = 0
 
     def get_follow_list(self, target_user):
         try:
-
             twint.output.clean_lists()
             logger.info("started: " + str(target_user))
             # global self.follow_list_dict
@@ -91,7 +92,7 @@ class CollectFollowList:
 
     def check_if_file_present(self, username):
         # logger.info ("check if file present")
-        mypath = "../../data/raw/follow_lists/"
+        mypath = "/home/hustle/playground/twitter_thought_leader/data/raw/follow_lists/"
         onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
         downloaded_user = []
         for i in onlyfiles:
@@ -120,7 +121,7 @@ class CollectFollowList:
             count = count + 1
             try:
                 command = (
-                    "cd ../../data/raw/follow_lists/; twint -u "
+                    "cd /home/hustle/playground/twitter_thought_leader/data/raw/follow_lists/; twint -u "
                     + username
                     + " --following -o "
                     + username
