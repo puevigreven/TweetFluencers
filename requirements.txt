@@ -89,7 +89,7 @@ pybind11==2.4.3
 pycairo==1.19.1
 pycares==3.1.1
 pycparser==2.20
-Pygments==2.6.1
+Pygments==2.7.4
 PyGObject==3.36.1
 pyLDAvis==2.1.2
 pymongo==3.4.0
