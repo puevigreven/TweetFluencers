@@ -84,7 +84,7 @@ prometheus-client @ file:///home/conda/feedstock_root/build_artifacts/prometheus
 prompt-toolkit @ file:///home/conda/feedstock_root/build_artifacts/prompt-toolkit_1592500439797/work
 psutil==5.7.0
 ptyprocess==0.6.0
-py==1.8.2
+py==1.10.0
 pybind11==2.4.3
 pycairo==1.19.1
 pycares==3.1.1
