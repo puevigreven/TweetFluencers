@@ -87,7 +87,7 @@ ptyprocess==0.6.0
 py==1.8.2
 pybind11==2.4.3
 pycairo==1.19.1
-pycares==3.1.1
+pycares==4.2.0
 pycparser==2.20
 Pygments==2.6.1
 PyGObject==3.36.1
